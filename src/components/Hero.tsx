@@ -7,36 +7,28 @@ export default function Hero() {
     return (
         <section
             id="hero"
-            className="h-screen w-full flex flex-col items-center justify-center relative overflow-hidden pt-20"
+            className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden pt-20"
         >
-            <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/5 via-background to-background opacity-50" />
+            <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(74,222,128,0.18),transparent_30%),linear-gradient(180deg,rgba(10,10,10,0.2)_0%,rgba(10,10,10,0.8)_100%)]" />
+            <div className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
-            {/* Animated Blobs */}
             <motion.div
-                animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                    x: [0, 50, 0]
-                }}
+                animate={{ scale: [1, 1.15, 1], opacity: [0.25, 0.45, 0.25] }}
                 transition={{ duration: 8, repeat: Infinity }}
-                className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px] -z-10"
+                className="absolute left-1/4 top-1/4 h-80 w-80 rounded-full bg-accent/10 blur-[120px]"
             />
             <motion.div
-                animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [0.2, 0.4, 0.2],
-                    x: [0, -50, 0]
-                }}
+                animate={{ scale: [1, 1.25, 1], opacity: [0.18, 0.4, 0.18] }}
                 transition={{ duration: 10, repeat: Infinity, delay: 1 }}
-                className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] -z-10"
+                className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-emerald-400/10 blur-[140px]"
             />
 
-            <div className="container mx-auto px-6 text-center z-10">
+            <div className="container z-10 mx-auto px-6 text-center">
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="text-accent font-medium tracking-wide mb-4 text-lg"
+                    className="mb-5 text-lg font-medium text-accent"
                 >
                     Hi, I&apos;m Zargham Haider
                 </motion.p>
@@ -45,41 +37,58 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="text-5xl sm:text-7xl md:text-8xl font-bold mb-6 tracking-tight text-foreground"
+                    className="mx-auto max-w-[1100px] text-[clamp(3rem,8vw,7.5rem)] font-bold leading-[0.9] tracking-[-0.09em] text-foreground"
                 >
                     Business Development
-                    <span className="block text-foreground/50">Manager & Growth Strategist</span>
+                    <span className="mt-3 block text-foreground/60">Manager & Growth Strategist</span>
                 </motion.h1>
 
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
-                    className="text-xl md:text-2xl text-foreground/60 max-w-2xl mx-auto mb-10"
+                    className="mx-auto mt-6 max-w-2xl text-base text-foreground/70 sm:text-xl"
                 >
                     6+ years of proven success in client acquisition, B2B sales, and revenue growth across global markets.
                 </motion.p>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.8 }}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-4"
+                    className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
                 >
                     <a
                         href="#activities"
-                        className="inline-block border border-accent text-accent px-8 py-3 rounded-full hover:bg-accent hover:text-background transition-all duration-300 font-medium text-lg"
+                        className="inline-flex items-center justify-center rounded-full border border-accent/70 px-8 py-3 text-base font-medium text-accent hover:bg-accent hover:text-background"
                     >
                         View My Work
                     </a>
                     <a
                         href="/Zargham_BDM.pdf"
                         download="Zargham_Haider_CV.pdf"
-                        className="inline-flex items-center gap-2 bg-accent text-background px-8 py-3 rounded-full hover:bg-accent/90 transition-all duration-300 font-medium text-lg"
+                        className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-3 text-base font-medium text-background hover:bg-accent/90"
                     >
-                        <Download size={20} />
+                        <Download size={18} />
                         Download CV
                     </a>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.1, duration: 0.8 }}
+                    className="mt-16 flex flex-wrap items-center justify-center gap-3 text-sm text-foreground/60"
+                >
+                    <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[0.72rem] uppercase tracking-[0.18em] text-foreground/75">
+                        Lahore, Pakistan
+                    </span>
+                    <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[0.72rem] uppercase tracking-[0.18em] text-foreground/75">
+                        Business Development
+                    </span>
+                    <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[0.72rem] uppercase tracking-[0.18em] text-foreground/75">
+                        Global Sales Growth
+                    </span>
                 </motion.div>
             </div>
 
@@ -87,9 +96,9 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.2, duration: 1 }}
-                className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
+                className="absolute bottom-8 left-1/2 -translate-x-1/2"
             >
-                <ArrowDown className="text-foreground/50" size={32} />
+                <ArrowDown className="text-foreground/60" size={28} />
             </motion.div>
         </section>
     );

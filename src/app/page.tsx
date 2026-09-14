@@ -9,6 +9,7 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Loader from "@/components/Loader";
+import Projects from "@/components/Projects";
 
 export default function Home() {
     const [loading, setLoading] = useState(true);
@@ -25,13 +26,13 @@ export default function Home() {
         <main className="min-h-screen bg-background text-foreground selection:bg-accent/30 selection:text-white">
             {loading && <Loader onComplete={() => setLoading(false)} />}
 
-            {/* Main Content - Visible behind loader but static, interactive after loader gone */}
-            <div className={`transition-opacity duration-700 ${loading ? 'opacity-0' : 'opacity-100'}`}>
+            <div className={`transition-opacity duration-700 ${loading ? "opacity-0" : "opacity-100"}`}>
                 <Navbar />
                 <Hero />
                 <About />
-                <Experience />
                 <Activities />
+                <Projects />
+                <Experience />
                 <Contact />
                 <Footer />
             </div>

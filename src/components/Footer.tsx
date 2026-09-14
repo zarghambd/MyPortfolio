@@ -1,12 +1,12 @@
 export default function Footer() {
     return (
-        <footer className="py-8 bg-background border-t border-white/10 text-center">
-            <div className="container mx-auto px-6">
-                <p className="text-gray-500 text-sm">
+        <footer className="border-t border-white/10 bg-background py-10">
+            <div className="container mx-auto flex flex-col items-center justify-center gap-2 px-6 text-center">
+                <p className="text-sm text-foreground/60">
                     Copyright © 2026 Zargham Haider. All rights reserved.
                 </p>
-                <p className="text-gray-600 text-xs mt-2">
-                    Engineered in <span className="text-white font-medium">Pakistan</span> 🇵🇰
+                <p className="text-xs uppercase tracking-[0.2em] text-foreground/40">
+                    Engineered in <span className="text-foreground/70">Pakistan</span>
                 </p>
             </div>
         </footer>

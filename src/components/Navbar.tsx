@@ -10,8 +10,9 @@ import { cn } from "@/lib/utils";
 const navLinks = [
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
     { name: "Activities", href: "#activities" },
+    { name: "Projects", href: "#projects" },
+    { name: "Experience", href: "#experience" },
     { name: "Contact", href: "#contact" },
 ];
 
@@ -24,7 +25,7 @@ export default function Navbar() {
     useEffect(() => {
         setMounted(true);
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            setScrolled(window.scrollY > 32);
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
@@ -34,21 +35,22 @@ export default function Navbar() {
         <nav
             className={cn(
                 "fixed top-0 left-0 w-full z-50 transition-all duration-300",
-                scrolled ? "bg-background/80 backdrop-blur-md border-b border-white/10" : "bg-transparent"
+                scrolled
+                    ? "border-b border-white/10 bg-black/60 backdrop-blur-md"
+                    : "bg-transparent"
             )}
         >
-            <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-                <Link href="#" className="text-2xl font-bold text-accent tracking-tighter">
+            <div className="container mx-auto flex h-20 items-center justify-between px-6">
+                <Link href="#hero" className="text-2xl font-bold tracking-[-0.08em] text-accent">
                     ZH.
                 </Link>
 
-                {/* Desktop Menu */}
-                <div className="hidden md:flex items-center space-x-8">
+                <div className="hidden items-center gap-8 md:flex">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-medium text-foreground/80 hover:text-accent transition-colors cursor-none"
+                            className="text-sm font-medium text-foreground/70 hover:text-accent"
                         >
                             {link.name}
                         </a>
@@ -57,52 +59,55 @@ export default function Navbar() {
                     {mounted && (
                         <button
                             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                            className="p-2 rounded-full bg-accent/10 hover:bg-accent/20 text-accent transition-colors cursor-none"
+                            className="rounded-full border border-white/10 bg-white/5 p-2 text-foreground/80 transition-colors hover:border-accent/60 hover:text-accent"
+                            aria-label="Toggle color theme"
                         >
-                            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
                         </button>
                     )}
                 </div>
 
-                <div className="flex items-center gap-4 md:hidden">
+                <div className="flex items-center gap-3 md:hidden">
                     {mounted && (
                         <button
                             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                            className="p-2 rounded-full bg-accent/10 hover:bg-accent/20 text-accent transition-colors"
+                            className="rounded-full border border-white/10 bg-white/5 p-2 text-foreground/80 transition-colors hover:border-accent/60 hover:text-accent"
+                            aria-label="Toggle color theme"
                         >
-                            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
                         </button>
                     )}
 
-                    {/* Mobile Toggle */}
                     <button
-                        className="text-foreground hover:text-accent transition-colors"
+                        className="text-foreground/80 hover:text-accent"
                         onClick={() => setIsOpen(!isOpen)}
+                        aria-label="Toggle menu"
                     >
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "100vh" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-background absolute top-20 left-0 w-full overflow-hidden flex flex-col items-center justify-center space-y-8"
+                        className="absolute left-0 top-20 w-full overflow-hidden border-t border-white/10 bg-black/95 md:hidden"
                     >
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                onClick={() => setIsOpen(false)}
-                                className="text-2xl font-medium text-gray-300 hover:text-accent transition-colors"
-                            >
-                                {link.name}
-                            </a>
-                        ))}
+                        <div className="container mx-auto flex flex-col items-center justify-center gap-8 px-6 py-10">
+                            {navLinks.map((link) => (
+                                <a
+                                    key={link.name}
+                                    href={link.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className="text-2xl font-medium text-foreground/70 hover:text-accent"
+                                >
+                                    {link.name}
+                                </a>
+                            ))}
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
