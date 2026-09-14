@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 
@@ -42,10 +43,11 @@ const projects = [
 ];
 
 export default function Projects() {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const activeProject = projects[activeIndex];
+
     return (
         <section id="projects" className="relative overflow-hidden py-24 md:py-32">
-            <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(74,222,128,0.06),transparent_25%)]" />
-
             <div className="container mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -55,68 +57,97 @@ export default function Projects() {
                     className="mb-12"
                 >
                     <div className="section-label mb-4">Selected Work</div>
-                    <h2 className="text-[2.5rem] font-bold leading-[1] tracking-[-0.07em] text-foreground md:text-[4.25rem]">
+                    <h2 className="max-w-4xl text-4xl font-semibold leading-[1] tracking-[-0.07em] text-foreground md:text-6xl">
                         Projects built for real people and real outcomes.
                     </h2>
                 </motion.div>
 
-                <motion.div className="cursor-grab overflow-hidden active:cursor-grabbing">
-                    <motion.div
-                        drag="x"
-                        dragConstraints={{ right: 0, left: -((projects.length * 450) - 1000) }}
-                        className="flex space-x-8 pb-10"
-                    >
+                <div className="mx-auto max-w-6xl">
+                    <div className="mb-8 flex flex-wrap gap-3">
                         {projects.map((project, index) => (
-                            <motion.div
-                                key={index}
-                                className="group relative min-w-[85vw] overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.02] shadow-[0_24px_60px_rgba(0,0,0,0.26)] md:min-w-[400px]"
-                                whileHover={{ scale: 1.02, y: -10 }}
+                            <button
+                                key={project.title}
+                                type="button"
+                                onClick={() => setActiveIndex(index)}
+                                className={`rounded-full border px-4 py-2 text-left transition-colors ${
+                                    activeIndex === index
+                                        ? "border-foreground bg-foreground text-background"
+                                        : "border-stone-300 bg-white/80 text-foreground/75 hover:border-stone-400"
+                                }`}
                             >
-                                <div className="relative h-64 w-full overflow-hidden bg-gray-900">
-                                    <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 to-transparent" />
-                                    <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="h-full w-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-100"
-                                    />
-                                </div>
-
-                                <div className="relative z-20 p-6 md:p-8">
-                                    <h3 className="mb-3 text-2xl font-semibold tracking-[-0.04em] text-foreground group-hover:text-accent">
-                                        {project.title}
-                                    </h3>
-                                    <p className="mb-6 text-sm leading-7 text-foreground/70">{project.description}</p>
-
-                                    <div className="mb-8 flex flex-wrap gap-2">
-                                        {project.tags.map((tag) => (
-                                            <span
-                                                key={tag}
-                                                className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-foreground/80"
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-
-                                    <div className="flex items-center space-x-4">
-                                        <a
-                                            href={project.links.demo}
-                                            className="flex items-center text-sm font-bold text-foreground hover:text-accent"
-                                        >
-                                            <ExternalLink size={18} className="mr-2" /> Live Demo
-                                        </a>
-                                        <a
-                                            href={project.links.git}
-                                            className="flex items-center text-sm font-bold text-foreground hover:text-accent"
-                                        >
-                                            <Github size={18} className="mr-2" /> GitHub
-                                        </a>
-                                    </div>
-                                </div>
-                            </motion.div>
+                                <span className="block text-sm font-medium">{project.title}</span>
+                                <span
+                                    className={`mt-1 block text-[0.6rem] font-medium uppercase tracking-[0.16em] ${
+                                        activeIndex === index ? "text-background/75" : "text-foreground/50"
+                                    }`}
+                                >
+                                    {project.tags.slice(0, 2).join(" • ")}
+                                </span>
+                            </button>
                         ))}
-                    </motion.div>
-                </motion.div>
+                    </div>
+
+                    <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+                        <motion.div
+                            key={activeProject.title}
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.35 }}
+                            className="overflow-hidden rounded-[30px] border border-stone-200 bg-white/80 shadow-[0_18px_40px_rgba(17,17,17,0.04)]"
+                        >
+                            <div className="relative h-[320px] w-full overflow-hidden bg-stone-200 md:h-[420px]">
+                                <img
+                                    src={activeProject.image}
+                                    alt={activeProject.title}
+                                    className="h-full w-full object-cover"
+                                />
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            key={`${activeProject.title}-details`}
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.35 }}
+                            className="rounded-[30px] border border-stone-200 bg-white/80 p-6 shadow-[0_18px_40px_rgba(17,17,17,0.04)]"
+                        >
+                            <h3 className="text-3xl font-semibold tracking-[-0.05em] text-foreground">
+                                {activeProject.title}
+                            </h3>
+                            <p className="mt-4 text-base leading-7 text-foreground/70">
+                                {activeProject.description}
+                            </p>
+
+                            <div className="mt-6 flex flex-wrap gap-2">
+                                {activeProject.tags.map((tag) => (
+                                    <span
+                                        key={tag}
+                                        className="rounded-full border border-stone-300 bg-background px-3 py-1 text-[0.6rem] font-medium uppercase tracking-[0.14em] text-foreground/70"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <div className="mt-8 flex flex-wrap gap-3">
+                                <a
+                                    href={activeProject.links.demo}
+                                    className="inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white px-4 py-2 text-sm font-medium text-foreground hover:border-stone-400"
+                                >
+                                    <ExternalLink size={16} />
+                                    Live Demo
+                                </a>
+                                <a
+                                    href={activeProject.links.git}
+                                    className="inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white px-4 py-2 text-sm font-medium text-foreground hover:border-stone-400"
+                                >
+                                    <Github size={16} />
+                                    GitHub
+                                </a>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
             </div>
         </section>
     );

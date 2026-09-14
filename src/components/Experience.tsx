@@ -95,55 +95,62 @@ const experiences = [
 
 export default function Experience() {
     return (
-        <section id="experience" className="relative overflow-hidden bg-background/50 py-24 md:py-32">
-            <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(74,222,128,0.06),transparent_30%)]" />
-
+        <section id="experience" className="relative overflow-hidden py-24 md:py-32">
             <div className="container mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="mb-12 text-center"
+                    className="mb-12"
                 >
                     <div className="section-label mb-4">Experience</div>
-                    <h2 className="text-[2.5rem] font-bold leading-[1] tracking-[-0.07em] text-foreground md:text-[4.25rem]">
+                    <h2 className="max-w-4xl text-4xl font-semibold leading-[1] tracking-[-0.07em] text-foreground md:text-6xl">
                         Employment History
                     </h2>
                 </motion.div>
 
-                <div className="mx-auto max-w-4xl space-y-10">
-                    {experiences.map((exp, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.06 }}
-                            className="relative border-l-2 border-accent/20 pl-8 transition-colors duration-300 hover:border-accent"
-                        >
-                            <span className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-accent" />
+                <div className="mx-auto max-w-4xl">
+                    <div className="space-y-8 border-l border-stone-300 pl-6 md:pl-8">
+                        {experiences.map((exp, index) => (
+                            <motion.article
+                                key={index}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.06 }}
+                                className="relative rounded-[24px] border border-stone-200 bg-white/80 p-6 shadow-[0_18px_40px_rgba(17,17,17,0.04)]"
+                            >
+                                <span className="absolute -left-[1.05rem] top-8 h-3 w-3 rounded-full border-4 border-background bg-foreground" />
 
-                            <div className="mb-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                                <h3 className="text-2xl font-semibold tracking-[-0.04em] text-foreground">
-                                    {exp.role}
-                                </h3>
-                                <span className="w-fit rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.16em] text-accent">
-                                    {exp.period}
-                                </span>
-                            </div>
+                                <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                                    <div className="flex items-start gap-4">
+                                        <div className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-300 bg-background text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-foreground/70">
+                                            {exp.company.slice(0, 2).toUpperCase()}
+                                        </div>
+                                        <div>
+                                            <h3 className="text-2xl font-semibold tracking-[-0.04em] text-foreground">
+                                                {exp.role}
+                                            </h3>
+                                            <div className="mt-2 text-sm font-medium uppercase tracking-[0.18em] text-foreground/60">
+                                                {exp.company}, {exp.location}
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            <div className="mb-4 text-sm font-medium uppercase tracking-[0.18em] text-foreground/60">
-                                {exp.company}, {exp.location}
-                            </div>
+                                    <span className="w-fit rounded-full border border-stone-300 bg-background px-3 py-1 text-[0.6rem] font-medium uppercase tracking-[0.16em] text-foreground/60">
+                                        {exp.period}
+                                    </span>
+                                </div>
 
-                            <ul className="ml-4 list-disc space-y-2 text-sm leading-7 text-foreground/75 md:text-base">
-                                {exp.description.map((item, i) => (
-                                    <li key={i}>{item}</li>
-                                ))}
-                            </ul>
-                        </motion.div>
-                    ))}
+                                <ul className="mt-5 ml-4 list-disc space-y-2 text-sm leading-7 text-foreground/75 md:text-base">
+                                    {exp.description.map((item, i) => (
+                                        <li key={i}>{item}</li>
+                                    ))}
+                                </ul>
+                            </motion.article>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

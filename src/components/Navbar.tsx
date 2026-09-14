@@ -34,23 +34,23 @@ export default function Navbar() {
     return (
         <nav
             className={cn(
-                "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+                "fixed top-0 left-0 z-50 w-full transition-all duration-300",
                 scrolled
-                    ? "border-b border-white/10 bg-black/60 backdrop-blur-md"
+                    ? "border-b border-stone-200 bg-[#f5f3ef]/85 backdrop-blur-md"
                     : "bg-transparent"
             )}
         >
             <div className="container mx-auto flex h-20 items-center justify-between px-6">
-                <Link href="#hero" className="text-2xl font-bold tracking-[-0.08em] text-accent">
+                <Link href="#hero" className="text-xl font-semibold tracking-[-0.06em] text-foreground">
                     ZH.
                 </Link>
 
-                <div className="hidden items-center gap-8 md:flex">
+                <div className="hidden items-center gap-6 md:flex">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-medium text-foreground/70 hover:text-accent"
+                            className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-foreground/70 hover:text-foreground"
                         >
                             {link.name}
                         </a>
@@ -59,7 +59,7 @@ export default function Navbar() {
                     {mounted && (
                         <button
                             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                            className="rounded-full border border-white/10 bg-white/5 p-2 text-foreground/80 transition-colors hover:border-accent/60 hover:text-accent"
+                            className="rounded-full border border-stone-300 bg-white/70 p-2 text-foreground/80 transition-colors hover:border-stone-400 hover:text-foreground"
                             aria-label="Toggle color theme"
                         >
                             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
@@ -71,7 +71,7 @@ export default function Navbar() {
                     {mounted && (
                         <button
                             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                            className="rounded-full border border-white/10 bg-white/5 p-2 text-foreground/80 transition-colors hover:border-accent/60 hover:text-accent"
+                            className="rounded-full border border-stone-300 bg-white/70 p-2 text-foreground/80 transition-colors hover:border-stone-400 hover:text-foreground"
                             aria-label="Toggle color theme"
                         >
                             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
@@ -79,7 +79,7 @@ export default function Navbar() {
                     )}
 
                     <button
-                        className="text-foreground/80 hover:text-accent"
+                        className="text-foreground/80 hover:text-foreground"
                         onClick={() => setIsOpen(!isOpen)}
                         aria-label="Toggle menu"
                     >
@@ -94,7 +94,7 @@ export default function Navbar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "100vh" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="absolute left-0 top-20 w-full overflow-hidden border-t border-white/10 bg-black/95 md:hidden"
+                        className="absolute left-0 top-20 w-full overflow-hidden border-t border-stone-200 bg-[#f5f3ef] md:hidden"
                     >
                         <div className="container mx-auto flex flex-col items-center justify-center gap-8 px-6 py-10">
                             {navLinks.map((link) => (
@@ -102,7 +102,7 @@ export default function Navbar() {
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
-                                    className="text-2xl font-medium text-foreground/70 hover:text-accent"
+                                    className="text-xl font-medium text-foreground/80 hover:text-foreground"
                                 >
                                     {link.name}
                                 </a>

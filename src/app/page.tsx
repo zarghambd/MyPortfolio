@@ -23,7 +23,7 @@ export default function Home() {
     }, [loading]);
 
     return (
-        <main className="min-h-screen bg-background text-foreground selection:bg-accent/30 selection:text-white">
+        <main className="min-h-screen bg-background text-foreground selection:bg-black/10 selection:text-foreground">
             {loading && <Loader onComplete={() => setLoading(false)} />}
 
             <div className={`transition-opacity duration-700 ${loading ? "opacity-0" : "opacity-100"}`}>
