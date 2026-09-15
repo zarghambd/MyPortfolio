@@ -97,12 +97,12 @@ export default function Experience() {
                     <p className="text-right text-[0.68rem] uppercase tracking-[0.14em] text-muted">6+ years of growth</p>
                 </div>
 
-                <div className="relative space-y-0 before:absolute before:bottom-6 before:left-[2.7rem] before:top-6 before:w-px before:bg-[var(--border)]">
+                <div className="relative space-y-3 before:absolute before:bottom-6 before:left-[2.7rem] before:top-6 before:w-px before:bg-[var(--border)]">
                     {experiences.map((item, index) => {
                         const isOpen = openIndex === index;
 
                         return (
-                            <div key={`${item.company}-${item.period}`} className={`relative overflow-hidden border-b bg-[var(--card)] transition-colors first:border-t ${isOpen ? "border-foreground/40" : "border-[var(--border)]"}`}>
+                            <div key={`${item.company}-${item.period}`} className={`relative overflow-hidden rounded-[28px] border bg-[var(--card)] transition-colors ${isOpen ? "border-foreground/40" : "border-[var(--border)]"}`}>
                                 <button
                                     type="button"
                                     onClick={() => setOpenIndex(isOpen ? -1 : index)}

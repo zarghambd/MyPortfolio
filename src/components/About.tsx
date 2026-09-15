@@ -26,7 +26,7 @@ const skills = [
 
 export default function About() {
     return (
-        <section id="about" className="py-3 md:py-6">
+        <section id="about" className="py-8 md:py-12">
             <motion.div
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}

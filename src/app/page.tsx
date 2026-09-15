@@ -16,6 +16,15 @@ export default function Home() {
         description:
             "Senior Business Development Manager and Growth Strategist specializing in B2B sales, client acquisition, strategic partnerships, and revenue growth.",
         email: "mailto:zarghamh96@gmail.com",
+        telephone: "+923241017481",
+        knowsAbout: [
+            "Business Development",
+            "B2B Sales",
+            "Client Acquisition",
+            "Strategic Partnerships",
+            "SaaS Sales",
+            "Revenue Growth",
+        ],
         address: {
             "@type": "PostalAddress",
             addressLocality: "Lahore",
