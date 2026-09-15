@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Linkedin, Send } from "lucide-react";
+import { Mail, MapPin, Linkedin, Phone, Send } from "lucide-react";
 
 export default function Contact() {
     const [formState, setFormState] = useState({ name: "", email: "", message: "" });
@@ -12,7 +12,9 @@ export default function Contact() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        await new Promise((resolve) => setTimeout(resolve, 1200));
+        const subject = encodeURIComponent(`Consultation request from ${formState.name}`);
+        const body = encodeURIComponent(`Name: ${formState.name}\nEmail: ${formState.email}\n\n${formState.message}`);
+        window.location.href = `mailto:zarghamh96@gmail.com?subject=${subject}&body=${body}`;
         setSubmitted(true);
         setIsSubmitting(false);
         setFormState({ name: "", email: "", message: "" });
@@ -23,7 +25,7 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="relative overflow-hidden py-24 md:py-32">
+        <section id="contact" className="relative overflow-hidden py-8 md:py-12">
             <div className="container mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -33,8 +35,11 @@ export default function Contact() {
                     className="mb-12"
                 >
                     <div className="section-label mb-4">Contact</div>
-                    <h2 className="max-w-4xl text-4xl font-semibold leading-[1] tracking-[-0.07em] text-foreground md:text-6xl">
-                        Let&apos;s build something meaningful.
+                    <h2
+                        className="max-w-4xl text-[1.5rem] font-normal leading-tight tracking-normal text-foreground md:text-[2rem]"
+                        style={{ fontFamily: '"Segoe Print", "Bradley Hand", cursive' }}
+                    >
+                        Turning Conversations Into Business Opportunities.
                     </h2>
                 </motion.div>
 
@@ -46,20 +51,20 @@ export default function Contact() {
                         transition={{ duration: 0.8 }}
                         className="space-y-5"
                     >
-                        <div className="rounded-[28px] border border-stone-200 bg-white/80 p-6 shadow-[0_18px_40px_rgba(17,17,17,0.04)]">
+                        <div className="rounded-[28px] border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_18px_40px_rgba(17,17,17,0.04)]">
                             <div className="mb-4 flex items-center gap-3 text-foreground/70">
                                 <Mail size={18} />
                                 <span className="text-[0.7rem] font-medium uppercase tracking-[0.18em]">Email</span>
                             </div>
                             <a
                                 href="mailto:zarghamh96@gmail.com"
-                                className="block text-lg text-foreground/80 hover:text-foreground"
+                                className="block text-base text-foreground/80 hover:text-foreground"
                             >
                                 zarghamh96@gmail.com
                             </a>
                         </div>
 
-                        <div className="rounded-[28px] border border-stone-200 bg-white/80 p-6 shadow-[0_18px_40px_rgba(17,17,17,0.04)]">
+                        <div className="rounded-[28px] border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_18px_40px_rgba(17,17,17,0.04)]">
                             <div className="mb-4 flex items-center gap-3 text-foreground/70">
                                 <Linkedin size={18} />
                                 <span className="text-[0.7rem] font-medium uppercase tracking-[0.18em]">LinkedIn</span>
@@ -68,18 +73,28 @@ export default function Contact() {
                                 href="https://www.linkedin.com/in/zargham-haider-189492161/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="block text-lg text-foreground/80 hover:text-foreground"
+                                className="block text-base text-foreground/80 hover:text-foreground"
                             >
                                 linkedin.com/in/zargham-haider-189492161
                             </a>
                         </div>
 
-                        <div className="rounded-[28px] border border-stone-200 bg-white/80 p-6 shadow-[0_18px_40px_rgba(17,17,17,0.04)]">
+                        <div className="rounded-[28px] border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_18px_40px_rgba(17,17,17,0.04)]">
+                            <div className="mb-4 flex items-center gap-3 text-foreground/70">
+                                <Phone size={18} />
+                                <span className="text-[0.7rem] font-medium uppercase tracking-[0.18em]">Phone</span>
+                            </div>
+                            <a href="tel:+923241017481" className="block text-base text-foreground/80 hover:text-foreground">
+                                +92 324 1017481
+                            </a>
+                        </div>
+
+                        <div className="rounded-[28px] border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_18px_40px_rgba(17,17,17,0.04)]">
                             <div className="mb-4 flex items-center gap-3 text-foreground/70">
                                 <MapPin size={18} />
                                 <span className="text-[0.7rem] font-medium uppercase tracking-[0.18em]">Location</span>
                             </div>
-                            <p className="text-lg text-foreground/80">Lahore, Pakistan</p>
+                            <p className="text-base text-foreground/80">Lahore, Pakistan</p>
                         </div>
                     </motion.div>
 
@@ -88,7 +103,7 @@ export default function Contact() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="rounded-[30px] border border-stone-200 bg-white/80 p-6 shadow-[0_18px_40px_rgba(17,17,17,0.04)] md:p-8"
+                        className="rounded-[30px] border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_18px_40px_rgba(17,17,17,0.04)] md:p-8"
                     >
                         {submitted ? (
                             <div className="flex h-full flex-col items-center justify-center py-10 text-center">
@@ -114,7 +129,7 @@ export default function Contact() {
                                         value={formState.name}
                                         onChange={handleChange}
                                         required
-                                        className="w-full rounded-2xl border border-stone-300 bg-background px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-stone-500 focus:outline-none"
+                                        className="w-full rounded-2xl border border-[var(--border)] bg-background px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-foreground focus:outline-none"
                                         placeholder="Your Name"
                                     />
                                 </div>
@@ -126,7 +141,7 @@ export default function Contact() {
                                         value={formState.email}
                                         onChange={handleChange}
                                         required
-                                        className="w-full rounded-2xl border border-stone-300 bg-background px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-stone-500 focus:outline-none"
+                                        className="w-full rounded-2xl border border-[var(--border)] bg-background px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-foreground focus:outline-none"
                                         placeholder="your@email.com"
                                     />
                                 </div>
@@ -138,7 +153,7 @@ export default function Contact() {
                                         onChange={handleChange}
                                         required
                                         rows={4}
-                                        className="w-full resize-none rounded-2xl border border-stone-300 bg-background px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-stone-500 focus:outline-none"
+                                        className="w-full resize-none rounded-2xl border border-[var(--border)] bg-background px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-foreground focus:outline-none"
                                         placeholder="How can I help you?"
                                     />
                                 </div>

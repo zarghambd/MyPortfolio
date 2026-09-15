@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-import CustomCursor from "@/components/CustomCursor";
-import SmoothScroll from "@/components/SmoothScroll";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 const siteUrl = "https://zargham.online";
 
@@ -16,7 +10,7 @@ export const metadata: Metadata = {
         template: "%s | Zargham Haider",
     },
     description:
-        "Portfolio of Zargham Haider, a Business Development Manager with 6+ years of success in client acquisition, B2B sales, and revenue growth across global markets.",
+        "Zargham Haider is a Senior Business Development Manager and Growth Strategist with 6+ years of experience in B2B sales, client acquisition, strategic partnerships, and revenue growth across global markets.",
     keywords: [
         "Zargham Haider",
         "Business Development Manager",
@@ -30,6 +24,9 @@ export const metadata: Metadata = {
     authors: [{ name: "Zargham Haider" }],
     creator: "Zargham Haider",
     publisher: "Zargham Haider",
+    category: "business",
+    applicationName: "Zargham Haider Portfolio",
+    referrer: "origin-when-cross-origin",
     formatDetection: {
         telephone: true,
         email: true,
@@ -42,7 +39,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Zargham Haider | Business Development Manager & Growth Strategist",
         description:
-            "6+ years driving client acquisition, B2B sales, and revenue growth across global markets. Explore my portfolio and experience.",
+            "Senior Business Development Manager and Growth Strategist driving client acquisition, B2B sales, strategic partnerships, and revenue growth across global markets.",
         url: siteUrl,
         siteName: "Zargham Haider Portfolio",
         locale: "en_US",
@@ -60,7 +57,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Zargham Haider | Business Development Manager & Growth Strategist",
         description:
-            "6+ years driving client acquisition, B2B sales, and revenue growth across global markets.",
+            "Senior Business Development Manager and Growth Strategist driving client acquisition, B2B sales, strategic partnerships, and revenue growth across global markets.",
         images: ["/profile.webp"],
         creator: "@zarghamhaider",
     },
@@ -82,6 +79,15 @@ export const metadata: Metadata = {
     },
 };
 
+export const viewport = {
+    width: "device-width",
+    initialScale: 1,
+    themeColor: [
+        { media: "(prefers-color-scheme: light)", color: "#f8f8f6" },
+        { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+    ],
+};
+
 import { Providers } from "./providers";
 
 // ... (imports remain)
@@ -93,10 +99,8 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={`${inter.variable} antialiased font-sans`}>
+            <body className="antialiased font-sans">
                 <Providers>
-                    <SmoothScroll />
-                    <CustomCursor />
                     {children}
                 </Providers>
             </body>

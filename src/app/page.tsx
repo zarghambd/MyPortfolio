@@ -1,37 +1,36 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Experience from "@/components/Experience";
-import Activities from "@/components/Activities";
 import About from "@/components/About";
+import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import Loader from "@/components/Loader";
-import Projects from "@/components/Projects";
 
 export default function Home() {
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        if (loading) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "unset";
-        }
-    }, [loading]);
+    const personSchema = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Zargham Haider",
+        url: "https://zargham.online",
+        image: "https://zargham.online/profile.webp",
+        jobTitle: "Senior Business Development Manager",
+        description:
+            "Senior Business Development Manager and Growth Strategist specializing in B2B sales, client acquisition, strategic partnerships, and revenue growth.",
+        email: "mailto:zarghamh96@gmail.com",
+        address: {
+            "@type": "PostalAddress",
+            addressLocality: "Lahore",
+            addressCountry: "PK",
+        },
+        sameAs: ["https://www.linkedin.com/in/zargham-haider-189492161/"],
+    };
 
     return (
-        <main className="min-h-screen bg-background text-foreground selection:bg-black/10 selection:text-foreground">
-            {loading && <Loader onComplete={() => setLoading(false)} />}
-
-            <div className={`transition-opacity duration-700 ${loading ? "opacity-0" : "opacity-100"}`}>
+        <main className="min-h-screen bg-background text-foreground selection:bg-black/10 selection:text-foreground dark:selection:bg-white/20">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
+            <div className="mx-auto max-w-4xl px-5 sm:px-8 lg:px-10">
                 <Navbar />
                 <Hero />
                 <About />
-                <Activities />
-                <Projects />
                 <Experience />
                 <Contact />
                 <Footer />

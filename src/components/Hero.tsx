@@ -1,88 +1,64 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Download } from "lucide-react";
+import { Download, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+
+const links = [
+    { label: "zarghamh96@gmail.com", href: "mailto:zarghamh96@gmail.com", icon: Mail },
+    { label: "+92 324 1017481", href: "tel:+923241017481", icon: Phone },
+    { label: "linkedin.com/in/zargham-haider-189492161", href: "https://www.linkedin.com/in/zargham-haider-189492161/", icon: Linkedin },
+];
 
 export default function Hero() {
     return (
-        <section
-            id="hero"
-            className="relative flex min-h-screen w-full items-center justify-center overflow-hidden pt-24"
-        >
-            <div className="container z-10 mx-auto px-6">
-                <motion.div
-                    initial={{ opacity: 0, y: 18 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="mx-auto max-w-5xl"
-                >
-                    <p className="mb-6 text-sm font-medium uppercase tracking-[0.2em] text-foreground/60">
-                        Hi, I&apos;m Zargham Haider
-                    </p>
-
-                    <h1 className="text-[clamp(3rem,7vw,7.5rem)] font-semibold leading-[0.95] tracking-[-0.09em] text-foreground">
-                        Business Development
-                        <span className="mt-2 block text-foreground/70">Manager & Growth Strategist</span>
-                    </h1>
-
-                    <p className="mt-6 max-w-2xl text-base text-foreground/70 sm:text-xl">
-                        6+ years of proven success in client acquisition, B2B sales, and revenue growth across global markets.
-                    </p>
-
-                    <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                        <a
-                            href="#activities"
-                            className="inline-flex items-center justify-center rounded-full border border-stone-300 bg-white/80 px-6 py-3 text-base font-medium text-foreground transition-colors hover:border-stone-400 hover:bg-white"
-                        >
-                            View My Work
-                        </a>
-                        <a
-                            href="/Zargham_BDM.pdf"
-                            download="Zargham_Haider_CV.pdf"
-                            className="inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3 text-base font-medium text-background transition-colors hover:bg-foreground/85"
-                        >
-                            <Download size={18} />
-                            Download CV
-                        </a>
-                    </div>
-
-                    <div className="mt-10 flex flex-wrap items-center gap-3 text-sm text-foreground/70">
-                        <span className="rounded-full border border-stone-300 bg-white/80 px-3 py-2 text-[0.7rem] uppercase tracking-[0.18em] text-foreground/80">
-                            Lahore, Pakistan
-                        </span>
-                        <a
-                            href="mailto:zarghamh96@gmail.com"
-                            className="rounded-full border border-stone-300 bg-white/80 px-3 py-2 text-[0.7rem] uppercase tracking-[0.18em] text-foreground/80 hover:text-foreground"
-                        >
-                            zarghamh96@gmail.com
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/zargham-haider-189492161/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="rounded-full border border-stone-300 bg-white/80 px-3 py-2 text-[0.7rem] uppercase tracking-[0.18em] text-foreground/80 hover:text-foreground"
-                        >
-                            LinkedIn
-                        </a>
-                        <a
-                            href="https://github.com/Aliwaris512"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="rounded-full border border-stone-300 bg-white/80 px-3 py-2 text-[0.7rem] uppercase tracking-[0.18em] text-foreground/80 hover:text-foreground"
-                        >
-                            GitHub
-                        </a>
-                    </div>
-                </motion.div>
-            </div>
-
+        <section id="hero" className="py-6 pb-2 md:py-8">
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.1, duration: 1 }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2"
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45 }}
+                className="space-y-8"
             >
-                <ArrowDown className="text-foreground/50" size={28} />
+                <div className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-muted">
+                    <span className="h-2 w-2 rounded-full bg-foreground" />
+                    Available for Consultation
+                </div>
+
+                <div className="space-y-4">
+                    <p className="text-[0.78rem] font-medium uppercase tracking-[0.2em] text-muted">hello, i&apos;m</p>
+                    <h1
+                        className="max-w-5xl text-[1.5rem] font-normal leading-tight tracking-normal text-foreground sm:text-[1.8rem] lg:text-[2.1rem]"
+                        style={{ fontFamily: '"Segoe Print", "Bradley Hand", cursive' }}
+                    >
+                        Zargham Haider
+                    </h1>
+                    <p className="max-w-2xl text-base text-muted md:text-lg">
+                        Business Development Manager & Growth Strategist helping businesses win high-value clients, build scalable sales pipelines, and accelerate revenue growth.
+                    </p>
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                    <a href="#about" className="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-medium text-foreground hover:border-black hover:bg-black hover:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-black">
+                        About me
+                    </a>
+                    <a href="/Zargham_BDM.pdf" download="Zargham_Haider_CV.pdf" className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-4 py-2 text-sm font-medium text-white hover:bg-black/85 dark:bg-white dark:text-black dark:hover:bg-white/90">
+                        <Download size={16} />
+                        Download CV
+                    </a>
+                </div>
+
+                <div className="space-y-3 pt-2">
+                    <div className="flex items-center gap-3 text-muted">
+                        <MapPin size={16} />
+                        <span>Lahore, Pakistan</span>
+                    </div>
+
+                    {links.map(({ label, href, icon: Icon }) => (
+                        <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} className="flex items-center gap-3 text-muted hover:text-foreground">
+                            <Icon size={16} />
+                            <span>{label}</span>
+                        </a>
+                    ))}
+                </div>
             </motion.div>
         </section>
     );
