@@ -2,23 +2,10 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Linkedin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Linkedin, Phone } from "lucide-react";
 
 export default function Contact() {
     const [formState, setFormState] = useState({ name: "", email: "", message: "" });
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitted, setSubmitted] = useState(false);
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-        const subject = encodeURIComponent(`Consultation request from ${formState.name}`);
-        const body = encodeURIComponent(`Name: ${formState.name}\nEmail: ${formState.email}\n\n${formState.message}`);
-        window.location.href = `mailto:zarghamh96@gmail.com?subject=${subject}&body=${body}`;
-        setSubmitted(true);
-        setIsSubmitting(false);
-        setFormState({ name: "", email: "", message: "" });
-    };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormState({ ...formState, [e.target.name]: e.target.value });
@@ -105,22 +92,11 @@ export default function Contact() {
                         transition={{ duration: 0.8 }}
                         className="rounded-[30px] border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_18px_40px_rgba(17,17,17,0.04)] md:p-8"
                     >
-                        {submitted ? (
-                            <div className="flex h-full flex-col items-center justify-center py-10 text-center">
-                                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600">
-                                    <Send size={30} />
-                                </div>
-                                <h3 className="mb-2 text-2xl font-semibold text-foreground">Message Sent!</h3>
-                                <p className="text-foreground/70">Thanks for reaching out. I&apos;ll get back to you soon.</p>
-                                <button
-                                    onClick={() => setSubmitted(false)}
-                                    className="mt-6 text-sm font-medium uppercase tracking-[0.18em] text-foreground/70 hover:text-foreground"
-                                >
-                                    Send another message
-                                </button>
-                            </div>
-                        ) : (
-                            <form onSubmit={handleSubmit} className="space-y-5">
+                        <form action="https://formsubmit.co/zarghamh96@gmail.com" method="POST" className="space-y-5">
+                                <input type="hidden" name="_subject" value="New consultation request from zargham.online" />
+                                <input type="hidden" name="_captcha" value="false" />
+                                <input type="hidden" name="_template" value="table" />
+                                <input type="hidden" name="_next" value="https://zargham.online/#contact" />
                                 <div>
                                     <label className="mb-2 block text-sm font-medium text-foreground/70">Name</label>
                                     <input
@@ -160,13 +136,11 @@ export default function Contact() {
 
                                 <button
                                     type="submit"
-                                    disabled={isSubmitting}
-                                    className="flex w-full items-center justify-center rounded-full bg-foreground px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-background transition-colors hover:bg-foreground/85 disabled:opacity-70"
+                                    className="flex w-full items-center justify-center rounded-full bg-foreground px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-background transition-colors hover:bg-foreground/85"
                                 >
-                                    {isSubmitting ? "Sending..." : "Send Message"}
+                                    Send Message
                                 </button>
-                            </form>
-                        )}
+                        </form>
                     </motion.div>
                 </div>
             </div>
