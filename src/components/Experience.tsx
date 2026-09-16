@@ -145,7 +145,7 @@ export default function Experience() {
                                         className="border-t border-[var(--border)] px-4 py-4 md:px-5"
                                     >
                                         <div className="mb-3 text-[0.7rem] uppercase tracking-[0.16em] text-muted">{item.location}</div>
-                                        <ul className="space-y-2 pl-5 text-[0.92rem] leading-7 text-muted">
+                                        <ul className="max-w-2xl space-y-2 pl-5 text-[0.92rem] leading-7 text-muted">
                                             {item.description.map((point) => (
                                                 <li key={point} className="list-disc">{point}</li>
                                             ))}

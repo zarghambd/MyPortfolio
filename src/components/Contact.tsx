@@ -32,7 +32,7 @@ export default function Contact() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="mb-12"
+                    className="mb-6"
                 >
                     <div className="section-label mb-4">Contact</div>
                     <h2

@@ -11,7 +11,7 @@ const links = [
 
 export default function Hero() {
     return (
-        <section id="hero" className="py-8 md:py-12">
+        <section id="hero" className="pb-3 pt-8 md:pb-4 md:pt-12">
             <motion.div
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}

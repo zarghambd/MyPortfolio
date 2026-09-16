@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 const siteUrl = "https://zargham.online";
@@ -35,6 +35,7 @@ export const metadata: Metadata = {
     icons: {
         icon: "/favicon.ico",
         shortcut: "/favicon.ico",
+        apple: "/profile.webp",
     },
     openGraph: {
         title: "Zargham Haider | Business Development Manager & Growth Strategist",
@@ -77,15 +78,23 @@ export const metadata: Metadata = {
     alternates: {
         canonical: siteUrl,
     },
+    manifest: "/manifest.webmanifest",
 };
 
-export const viewport = {
+export const viewport: Viewport = {
     width: "device-width",
     initialScale: 1,
     themeColor: [
         { media: "(prefers-color-scheme: light)", color: "#f8f8f6" },
         { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
     ],
+    colorScheme: "light dark",
+};
+
+export const appleWebApp = {
+    capable: true,
+    title: "Zargham Haider Portfolio",
+    statusBarStyle: "default" as const,
 };
 
 import { Providers } from "./providers";
