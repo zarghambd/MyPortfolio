@@ -10,7 +10,7 @@ export const metadata: Metadata = {
         template: "%s | Zargham Haider",
     },
     description:
-        "Zargham Haider is a Senior Business Development Manager and Growth Strategist specializing in B2B sales, client acquisition, partnerships, and revenue growth.",
+        "Zargham Haider is a Senior Business Development Manager and Growth Strategist with 6+ years of experience in B2B sales, client acquisition, strategic partnerships, and revenue growth across global markets.",
     keywords: [
         "Zargham Haider",
         "Business Development Manager",
@@ -18,12 +18,6 @@ export const metadata: Metadata = {
         "Client Acquisition",
         "Revenue Growth",
         "Growth Strategist",
-        "Strategic Partnerships",
-        "SaaS Sales",
-        "Consultative Selling",
-        "Market Expansion",
-        "Sales Process Optimization",
-        "Lahore Business Development Manager",
         "Portfolio",
         "Business Development",
     ],
@@ -45,7 +39,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Zargham Haider | Business Development Manager & Growth Strategist",
         description:
-            "Senior Business Development Manager and Growth Strategist specializing in B2B sales, client acquisition, partnerships, and revenue growth.",
+            "Senior Business Development Manager and Growth Strategist driving client acquisition, B2B sales, strategic partnerships, and revenue growth across global markets.",
         url: siteUrl,
         siteName: "Zargham Haider Portfolio",
         locale: "en_US",
@@ -63,7 +57,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Zargham Haider | Business Development Manager & Growth Strategist",
         description:
-            "Senior Business Development Manager and Growth Strategist specializing in B2B sales, client acquisition, partnerships, and revenue growth.",
+            "Senior Business Development Manager and Growth Strategist driving client acquisition, B2B sales, strategic partnerships, and revenue growth across global markets.",
         images: ["/profile.webp"],
         creator: "@zarghamhaider",
     },

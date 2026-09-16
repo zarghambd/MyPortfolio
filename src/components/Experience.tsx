@@ -102,7 +102,7 @@ export default function Experience() {
                         const isOpen = openIndex === index;
 
                         return (
-                            <div key={`${item.company}-${item.period}`} className={`relative overflow-hidden rounded-[28px] border bg-[var(--card)] transition-colors ${isOpen ? "border-foreground/40" : "border-[var(--border)]"}`}>
+                            <div key={`${item.company}-${item.period}`} className={`relative overflow-hidden rounded-[30px] border bg-[var(--card)] transition-colors ${isOpen ? "border-foreground/40" : "border-[var(--border)]"}`}>
                                 <button
                                     type="button"
                                     onClick={() => setOpenIndex(isOpen ? -1 : index)}
