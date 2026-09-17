@@ -1,7 +1,14 @@
 import type { Metadata, Viewport } from "next";
+import { Fira_Sans } from "next/font/google";
 import "./globals.css";
 
 const siteUrl = "https://zargham.online";
+const firaSans = Fira_Sans({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
+    variable: "--font-fira-sans",
+    display: "swap",
+});
 
 export const metadata: Metadata = {
     metadataBase: new URL(siteUrl),
@@ -33,9 +40,9 @@ export const metadata: Metadata = {
         address: true,
     },
     icons: {
-        icon: "/favicon.ico",
-        shortcut: "/favicon.ico",
-        apple: "/profile.webp",
+        icon: "/favicon.svg?v=5",
+        shortcut: "/favicon.svg?v=5",
+        apple: "/favicon.svg?v=5",
     },
     openGraph: {
         title: "Zargham Haider | Business Development Manager & Growth Strategist",
@@ -108,7 +115,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className="antialiased font-sans">
+            <body className={`${firaSans.variable} antialiased font-sans`}>
                 <Providers>
                     {children}
                 </Providers>

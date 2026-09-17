@@ -12,9 +12,9 @@ export default function manifest(): MetadataRoute.Manifest {
         lang: "en",
         icons: [
             {
-                src: "/profile.webp",
-                sizes: "800x800",
-                type: "image/webp",
+                src: "/favicon.svg?v=5",
+                sizes: "any",
+                type: "image/svg+xml",
                 purpose: "any",
             },
         ],

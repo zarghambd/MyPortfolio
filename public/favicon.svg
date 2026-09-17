@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .mark { fill: #111111; }
+    .letter { fill: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      .mark { fill: #ffffff; }
+      .letter { fill: #111111; }
+    }
+  </style>
+  <rect class="mark" x="4" y="4" width="56" height="56" rx="12" />
+  <text class="letter" x="32" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700">ZH</text>
+</svg>

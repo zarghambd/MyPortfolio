@@ -36,7 +36,7 @@ html.dark {
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-fira-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     overflow-x: hidden;
     line-height: 1.6;
     letter-spacing: -0.02em;
@@ -60,6 +60,10 @@ html.dark {
   p {
     @apply text-[0.98rem] leading-7 text-foreground;
     color: var(--muted);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, "Times New Roman", serif;
   }
 }
 

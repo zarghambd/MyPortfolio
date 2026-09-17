@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Footer() {
     const [time, setTime] = useState("");
@@ -26,7 +27,15 @@ export default function Footer() {
         <footer id="footer" className="border-t border-[var(--border)] py-8 md:py-10">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div>
-                    <p className="text-xl font-semibold tracking-[-0.06em] text-foreground">Zargham Haider</p>
+                    <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        className="text-xl font-semibold tracking-[-0.06em] text-foreground"
+                    >
+                        Zargham Haider
+                    </motion.p>
                     <p className="mt-1 text-sm text-muted">Lahore, Pakistan • Local time {time}</p>
                 </div>
 

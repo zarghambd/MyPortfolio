@@ -1,8 +1,9 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 const experiences = [
     {
@@ -102,13 +103,13 @@ export default function Experience() {
                         const isOpen = openIndex === index;
 
                         return (
-                            <div key={`${item.company}-${item.period}`} className={`relative overflow-hidden rounded-[30px] border bg-[var(--card)] transition-colors ${isOpen ? "border-foreground/40" : "border-[var(--border)]"}`}>
-                                <button
-                                    type="button"
-                                    onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                                    aria-expanded={isOpen}
-                                    className="flex w-full items-center justify-between gap-4 px-4 py-5 text-left md:px-5"
-                                >
+                            <Collapsible
+                                key={`${item.company}-${item.period}`}
+                                open={isOpen}
+                                onOpenChange={(open) => setOpenIndex(open ? index : -1)}
+                                className={`relative overflow-hidden rounded-[30px] border bg-[var(--card)] transition-colors ${isOpen ? "border-foreground/40" : "border-[var(--border)]"}`}
+                            >
+                                <CollapsibleTrigger className="flex w-full items-center justify-between gap-4 px-4 py-5 text-left md:px-5">
                                     <div className="flex items-center gap-4">
                                         <span className="z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-[var(--border)] bg-white p-1 text-[0.56rem] font-semibold uppercase tracking-[0.12em] text-black dark:bg-white">
                                             <span className="relative flex h-full w-full items-center justify-center overflow-hidden">
@@ -133,27 +134,17 @@ export default function Experience() {
                                         <span className="text-[0.62rem] font-medium uppercase tracking-[0.16em] text-muted">{item.period}</span>
                                         <ChevronDown size={18} className={`shrink-0 text-muted transition-transform ${isOpen ? "rotate-180 text-foreground" : ""}`} />
                                     </div>
-                                </button>
+                                </CollapsibleTrigger>
 
-                                <AnimatePresence initial={false}>
-                                    {isOpen && (
-                                    <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: "auto", opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.25, ease: "easeOut" }}
-                                        className="border-t border-[var(--border)] px-4 py-4 md:px-5"
-                                    >
+                                <CollapsibleContent className="border-t border-[var(--border)] px-4 py-4 md:px-5">
                                         <div className="mb-3 text-[0.7rem] uppercase tracking-[0.16em] text-muted">{item.location}</div>
                                         <ul className="max-w-2xl space-y-2 pl-5 text-[0.92rem] leading-7 text-muted">
                                             {item.description.map((point) => (
                                                 <li key={point} className="list-disc">{point}</li>
                                             ))}
                                         </ul>
-                                    </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </div>
+                                </CollapsibleContent>
+                            </Collapsible>
                         );
                     })}
                 </div>

@@ -1,16 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Linkedin, Phone } from "lucide-react";
+import { CalendarDays, Mail, MapPin, Linkedin, Phone } from "lucide-react";
 
 export default function Contact() {
-    const [formState, setFormState] = useState({ name: "", email: "", message: "" });
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormState({ ...formState, [e.target.name]: e.target.value });
-    };
-
     return (
         <section id="contact" className="relative overflow-hidden py-8 md:py-12">
             <div className="container mx-auto px-6">
@@ -90,57 +83,23 @@ export default function Contact() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="rounded-[30px] border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_18px_40px_rgba(17,17,17,0.04)] md:p-8"
+                        className="flex h-fit self-start flex-col rounded-[30px] border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_18px_40px_rgba(17,17,17,0.04)] md:p-8"
                     >
-                        <form action="https://formsubmit.co/zarghamh96@gmail.com" method="POST" className="space-y-5">
-                                <input type="hidden" name="_subject" value="New consultation request from zargham.online" />
-                                <input type="hidden" name="_captcha" value="false" />
-                                <input type="hidden" name="_template" value="table" />
-                                <input type="hidden" name="_next" value="https://zargham.online/#contact" />
-                                <div>
-                                    <label className="mb-2 block text-sm font-medium text-foreground/70">Name</label>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        value={formState.name}
-                                        onChange={handleChange}
-                                        required
-                                        className="w-full rounded-2xl border border-[var(--border)] bg-background px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-foreground focus:outline-none"
-                                        placeholder="Your Name"
-                                    />
-                                </div>
-                                <div>
-                                    <label className="mb-2 block text-sm font-medium text-foreground/70">Email</label>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        value={formState.email}
-                                        onChange={handleChange}
-                                        required
-                                        className="w-full rounded-2xl border border-[var(--border)] bg-background px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-foreground focus:outline-none"
-                                        placeholder="your@email.com"
-                                    />
-                                </div>
-                                <div>
-                                    <label className="mb-2 block text-sm font-medium text-foreground/70">Message</label>
-                                    <textarea
-                                        name="message"
-                                        value={formState.message}
-                                        onChange={handleChange}
-                                        required
-                                        rows={4}
-                                        className="w-full resize-none rounded-2xl border border-[var(--border)] bg-background px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-foreground focus:outline-none"
-                                        placeholder="How can I help you?"
-                                    />
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    className="flex w-full items-center justify-center rounded-full bg-foreground px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-background transition-colors hover:bg-foreground/85"
-                                >
-                                    Send Message
-                                </button>
-                        </form>
+                        <div>
+                            <CalendarDays size={22} className="mb-5 text-foreground" />
+                            <h3 className="max-w-sm text-xl font-medium text-foreground">Let&apos;s discuss your next growth opportunity.</h3>
+                            <p className="mt-3 max-w-sm text-sm leading-6 text-muted">Choose a convenient time for a focused 1:1 consultation.</p>
+                            <p className="mt-4 max-w-sm text-sm leading-6 text-muted">I help businesses build stronger pipelines, win clients, and turn growth opportunities into lasting results.</p>
+                            <p className="mt-3 max-w-sm text-sm font-medium leading-6 text-foreground">Let&apos;s connect and explore what&apos;s next.</p>
+                        </div>
+                        <a
+                            href="https://calendly.com/zarghamh96"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-foreground px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-background transition-opacity hover:opacity-80"
+                        >
+                            Book a 1:1 Consultation
+                        </a>
                     </motion.div>
                 </div>
             </div>

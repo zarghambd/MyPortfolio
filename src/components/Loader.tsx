@@ -12,14 +12,16 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
             onAnimationComplete={onComplete}
         >
             <div className="relative">
-                <motion.div
+                <motion.img
+                    src="/favicon.svg?v=5"
+                    alt="Zargham Haider"
+                    width={72}
+                    height={72}
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
-                    className="text-4xl md:text-6xl font-bold text-accent tracking-tighter"
-                >
-                    ZH.
-                </motion.div>
+                    className="h-16 w-16 rounded-xl object-contain md:h-20 md:w-20"
+                />
 
                 {/* Loading Bar */}
                 <motion.div
