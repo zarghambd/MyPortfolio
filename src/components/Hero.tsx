@@ -19,7 +19,7 @@ export default function Hero() {
                 className="space-y-8"
             >
                 <div className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-muted">
-                    <span className="h-2 w-2 rounded-full bg-foreground" />
+                    <span className="h-2 w-2 rounded-full bg-green-500" />
                     Available for Consultation
                 </div>
 
