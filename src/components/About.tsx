@@ -36,7 +36,7 @@ export default function About() {
                 transition={{ duration: 0.45 }}
                 className="space-y-7"
             >
-                <div className="space-y-5">
+                <div className="space-y-3">
                     <motion.div
                         aria-label="hello"
                         className="hello-text text-[1.6rem] leading-none text-foreground md:text-[2rem]"
@@ -64,12 +64,8 @@ export default function About() {
                         ))}
                     </motion.div>
 
-                    <p className="max-w-2xl text-[0.9rem] leading-7 text-muted md:text-[0.98rem]">
-                        Business Development Manager and Growth Strategist with 6+ years of proven success in client acquisition, B2B sales, and revenue growth across global markets. Specialized in Upwork, Fiverr, and Freelancer.com, with expertise in building strong client relationships, executing sales strategies, and negotiating high-value contracts.
-                    </p>
-
-                    <p className="max-w-2xl text-[0.9rem] leading-7 text-muted md:text-[0.98rem]">
-                        Passionate about helping brands scale sustainably through tailored business development strategies and process optimization.
+                    <p className="max-w-2xl text-[0.9rem] leading-6 text-muted md:text-[0.98rem] md:leading-7">
+                        Business Development Manager and Growth Strategist with 6+ years of proven success in client acquisition, B2B sales, and revenue growth across global markets. Specialized in Upwork, Fiverr, and Freelancer.com, with expertise in building strong client relationships, executing sales strategies, and negotiating high-value contracts. Passionate about helping brands scale sustainably through tailored business development strategies and process optimization.
                     </p>
                 </div>
 

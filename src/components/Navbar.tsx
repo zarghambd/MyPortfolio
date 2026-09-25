@@ -12,11 +12,22 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-    const { theme, setTheme } = useTheme();
+    const { resolvedTheme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
     const [open, setOpen] = useState(false);
 
     useEffect(() => setMounted(true), []);
+
+    const toggleTheme = () => {
+        const nextTheme = resolvedTheme === "dark" ? "light" : "dark";
+
+        if (typeof document.startViewTransition === "function") {
+            document.startViewTransition(() => setTheme(nextTheme));
+            return;
+        }
+
+        setTheme(nextTheme);
+    };
 
     return (
         <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/90 backdrop-blur-sm">
@@ -38,11 +49,11 @@ export default function Navbar() {
                     {mounted && (
                         <button
                             type="button"
-                            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                            onClick={toggleTheme}
                             className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] bg-white text-black transition-colors hover:bg-black hover:text-white dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black"
                             aria-label="Toggle color theme"
                         >
-                            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+                            {resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
                         </button>
                     )}
                 </div>
@@ -51,11 +62,11 @@ export default function Navbar() {
                     {mounted && (
                         <button
                             type="button"
-                            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                            onClick={toggleTheme}
                             className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] bg-white text-black dark:bg-black dark:text-white"
                             aria-label="Toggle color theme"
                         >
-                            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+                            {resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
                         </button>
                     )}
 
