@@ -13,15 +13,11 @@ const experiences = [
         location: "Dubai, UAE (Hybrid)",
         period: "Jun 2025 – Present",
         description: [
-            "At CodeSuite, I lead strategic business development initiatives focused on building long-term partnerships with startups and SaaS companies.",
-            "My role centers on identifying high-potential opportunities, understanding client growth objectives, and aligning them with scalable web and SaaS development solutions.",
-            "Rather than pursuing short-term wins, I focus on securing long-term engagements that create sustained value for both clients and the company.",
-            "Secured long-term clients through strategic outreach and consultative selling.",
-            "Built and maintained strong relationships with founders, CTOs, and product leaders.",
-            "Positioned CodeSuite as a reliable full-stack and SaaS development partner.",
-            "Structured cost-efficient development teams while maintaining high code quality standards.",
-            "Collaborated with technical teams to ensure smooth project scoping, delivery, and client satisfaction.",
-            "Through a consultative approach, I help clients move from initial discussions to long-term technology partnerships — ensuring continuity, scalability, and measurable business impact."
+            "Identify new growth opportunities and build strong, long-term client partnerships across international markets.",
+            "Drive end-to-end client acquisition, from prospecting through contract negotiation, in competitive markets.",
+            "Lead market analysis, strategic planning, and sales initiatives to exceed monthly and quarterly revenue targets.",
+            "Oversee a team of business developers, setting targets, coaching performance, and reviewing pipeline health.",
+            "Own key account relationships post-sale, driving upsells and long-term retention.",
         ],
     },
     {
@@ -31,9 +27,9 @@ const experiences = [
         location: "Dubai, UAE (Hybrid)",
         period: "Oct 2024 – Present",
         description: [
-            "Identifying new growth opportunities and building strong partnerships.",
-            "Driving client acquisition and negotiating contracts in competitive markets.",
-            "Leading market analysis, planning, and sales initiatives to exceed revenue targets.",
+            "Identify new growth opportunities and build strong, long-term client partnerships.",
+            "Drive client acquisition and negotiate contracts in competitive international markets.",
+            "Lead market analysis, strategic planning, and sales initiatives to exceed revenue targets.",
         ],
     },
     {
@@ -43,8 +39,8 @@ const experiences = [
         location: "Lahore, Pakistan (Remote)",
         period: "Mar 2024 – Apr 2025",
         description: [
-            "Managed global clients and scaled business operations through digital platforms.",
-            "Executed strategic business development campaigns and client outreach.",
+            "Managed a global client portfolio and scaled business operations through digital platforms.",
+            "Executed strategic business development campaigns and targeted client outreach.",
         ],
     },
     {
@@ -54,8 +50,8 @@ const experiences = [
         location: "Lahore, Pakistan (On-site)",
         period: "Feb 2024 – Oct 2024",
         description: [
-            "Provided consultancy and led sales initiatives for IT services.",
-            "Successfully closed multiple B2B deals through tailored proposals.",
+            "Provided consultancy and led sales initiatives for IT services clients.",
+            "Closed multiple B2B deals through tailored, high-conversion proposals.",
         ],
     },
     {
@@ -65,8 +61,8 @@ const experiences = [
         location: "Lahore, Pakistan (On-site)",
         period: "Jan 2023 – Apr 2024",
         description: [
-            "Focused on CRM management, bid preparation, and lead generation.",
-            "Developed customized solutions and maintained strong client accounts.",
+            "Owned CRM management, bid preparation, and end-to-end lead generation.",
+            "Developed customized client solutions and maintained strong, long-term accounts.",
         ],
     },
     {
@@ -76,8 +72,16 @@ const experiences = [
         location: "Lahore, Pakistan (On-site)",
         period: "Jun 2022 – Jan 2023",
         description: [
-            "Handled freelancing platforms, client acquisition, and business growth strategies.",
+            "Managed freelancing-platform client acquisition and business growth strategy.",
         ],
+    },
+    {
+        role: "Business Development Executive",
+        company: "Value Business Solutions",
+        logo: "/logos/value business solutions.png",
+        location: "Lahore, Pakistan",
+        period: "Jan 2021 – Jan 2022",
+        description: ["Specialized in proposal writing, B2B sales, and competitive bid management."],
     },
 ];
 

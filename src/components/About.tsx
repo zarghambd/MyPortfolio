@@ -3,25 +3,27 @@
 import { motion } from "framer-motion";
 
 const skills = [
-    "Business Development",
-    "Growth Strategy",
     "B2B Sales",
     "Client Acquisition",
-    "Lead Generation",
-    "Strategic Partnerships",
-    "SaaS Sales",
-    "Sales Negotiation",
-    "Consultative Selling",
+    "Proposal Writing",
     "Account Management",
-    "Market Expansion",
-    "Staff Augmentation",
-    "Sales Process Optimization",
-    "Team Leadership",
-    "International Business Development",
     "Upwork",
     "Fiverr",
     "Freelancer.com",
-    "WellFound",
+    "HubSpot",
+    "Zoho CRM",
+    "Salesforce (Basic)",
+    "Relationship Building",
+    "Negotiation",
+    "Workflow Optimization",
+    "Strategic Planning",
+];
+
+const achievements = [
+    "Closed multiple high-value projects, helping agencies and SMEs scale revenue.",
+    "Designed B2B sales workflows that improved client retention and long-term partnerships.",
+    "Built sales pipelines across the UAE and Pakistan while managing hybrid and remote teams.",
+    "Enhanced CRM processes and proposal systems, reducing lead response time by 30%.",
 ];
 
 export default function About() {
@@ -63,22 +65,37 @@ export default function About() {
                     </motion.div>
 
                     <p className="max-w-2xl text-[0.9rem] leading-7 text-muted md:text-[0.98rem]">
-                        Business Development Manager and Growth Strategist with 6+ years of proven experience in client acquisition, B2B sales, and revenue growth across global markets. Skilled in leveraging platforms such as Upwork, Fiverr, and Freelancer.com to generate opportunities, build lasting client relationships, and execute effective sales strategies.
+                        Business Development Manager and Growth Strategist with 6+ years of proven success in client acquisition, B2B sales, and revenue growth across global markets. Specialized in Upwork, Fiverr, and Freelancer.com, with expertise in building strong client relationships, executing sales strategies, and negotiating high-value contracts.
                     </p>
 
                     <p className="max-w-2xl text-[0.9rem] leading-7 text-muted md:text-[0.98rem]">
-                        Experienced in negotiating high-value contracts and working with clients across the US, Europe, UAE, and Pakistan. Passionate about helping businesses scale sustainably through tailored business development strategies, process optimization, and strategic relationship management. Proven track record of strengthening sales pipelines, improving lead response times, and driving business growth across diverse markets.
+                        Passionate about helping brands scale sustainably through tailored business development strategies and process optimization.
                     </p>
                 </div>
 
-                <div className="pt-2">
-                    <div className="mb-4 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted">Skills</div>
+                <div className="border-t border-[var(--border)] pt-7">
+                    <div className="section-label mb-4">Skills</div>
                     <div className="flex flex-wrap gap-2">
                         {skills.map((skill) => (
                             <span key={skill} className="rounded-full border border-[var(--border)] bg-[var(--chip)] px-3 py-2 text-[0.68rem] font-medium uppercase tracking-[0.08em] text-foreground">
                                 {skill}
                             </span>
                         ))}
+                    </div>
+                </div>
+
+                <div className="border-t border-[var(--border)] pt-7">
+                    <div className="section-label mb-4">Key achievements</div>
+                    <ul className="max-w-2xl space-y-3 pl-5 text-left text-[0.9rem] leading-6 text-muted">
+                        {achievements.map((achievement) => <li key={achievement} className="list-disc marker:text-foreground">{achievement}</li>)}
+                    </ul>
+                </div>
+
+                <div className="border-t border-[var(--border)] pt-7">
+                    <div className="section-label mb-4">Education</div>
+                    <div className="max-w-2xl text-left">
+                        <p className="text-[0.95rem] font-medium text-foreground">BS in Information Technology</p>
+                        <p className="mt-1 text-[0.9rem] leading-6 text-muted">Bahauddin Zakariya University<br />Sep 2015 – Jun 2019</p>
                     </div>
                 </div>
             </motion.div>

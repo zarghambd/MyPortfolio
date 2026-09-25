@@ -64,8 +64,8 @@ export default function Contact() {
                                 <Phone size={18} />
                                 <span className="text-[0.7rem] font-medium uppercase tracking-[0.18em]">Phone</span>
                             </div>
-                            <a href="tel:+923241017481" className="block text-base text-foreground/80 hover:text-foreground">
-                                +92 324 1017481
+                            <a href="tel:+923204501039" className="block text-base text-foreground/80 hover:text-foreground">
+                                +92 320 4501039
                             </a>
                         </div>
 

@@ -42,7 +42,7 @@ export default function Footer() {
                 <div className="flex flex-wrap items-center gap-4 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-muted">
                     <a href="mailto:zarghamh96@gmail.com" className="hover:text-foreground">Email</a>
                     <a href="https://www.linkedin.com/in/zargham-haider-189492161/" target="_blank" rel="noreferrer" className="hover:text-foreground">LinkedIn</a>
-                    <a href="/Zargham_BDM.pdf" download="Zargham_Haider_CV.pdf" className="hover:text-foreground">Resume</a>
+                    <a href="/api/resume" className="hover:text-foreground">Resume</a>
                 </div>
             </div>
         </footer>

@@ -5,7 +5,7 @@ import { Download, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 const links = [
     { label: "zarghamh96@gmail.com", href: "mailto:zarghamh96@gmail.com", icon: Mail },
-    { label: "+92 324 1017481", href: "tel:+923241017481", icon: Phone },
+    { label: "+92 320 4501039", href: "tel:+923204501039", icon: Phone },
     { label: "linkedin.com/in/zargham-haider-189492161", href: "https://www.linkedin.com/in/zargham-haider-189492161/", icon: Linkedin },
 ];
 
@@ -18,7 +18,7 @@ export default function Hero() {
                 transition={{ duration: 0.45 }}
                 className="space-y-8"
             >
-                <div className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-muted">
+                <div className="inline-flex items-center gap-2 rounded-full border border-green-500 bg-[var(--card)] px-3 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-green-600 dark:text-green-400">
                     <span className="h-2 w-2 rounded-full bg-green-500" />
                     Available for Consultation
                 </div>
@@ -32,7 +32,7 @@ export default function Hero() {
                         Zargham Haider
                     </h1>
                     <p className="max-w-2xl text-base text-muted md:text-lg">
-                        Business Development Manager & Growth Strategist helping businesses win high-value clients, build scalable sales pipelines, and accelerate revenue growth.
+                        Business Development Manager & Growth Strategist with 6+ years of success in client acquisition, B2B sales, and revenue growth across global markets.
                     </p>
                 </div>
 
@@ -40,7 +40,7 @@ export default function Hero() {
                     <a href="#about" className="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-medium text-foreground hover:border-black hover:bg-black hover:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-black">
                         About me
                     </a>
-                    <a href="/Zargham_BDM.pdf" download="Zargham_Haider_CV.pdf" className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-4 py-2 text-sm font-medium text-white hover:bg-black/85 dark:bg-white dark:text-black dark:hover:bg-white/90">
+                    <a href="/api/resume" className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-4 py-2 text-sm font-medium text-white hover:bg-black/85 dark:bg-white dark:text-black dark:hover:bg-white/90">
                         <Download size={16} />
                         Download CV
                     </a>

@@ -12,7 +12,7 @@ export default function Home() {
         name: "Zargham Haider",
         url: "https://zargham.online",
         image: "https://zargham.online/profile.webp",
-        jobTitle: "Senior Business Development Manager",
+        jobTitle: "Business Development Manager & Growth Strategist",
         description:
             "Senior Business Development Manager and Growth Strategist specializing in B2B sales, client acquisition, strategic partnerships, and revenue growth.",
         email: "mailto:zarghamh96@gmail.com",

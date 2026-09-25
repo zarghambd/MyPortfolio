@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         template: "%s | Zargham Haider",
     },
     description:
-        "Zargham Haider is a Senior Business Development Manager and Growth Strategist with 6+ years of experience in B2B sales, client acquisition, strategic partnerships, and revenue growth across global markets.",
+        "Zargham Haider is a Business Development Manager and Growth Strategist with 6+ years of experience in B2B sales, client acquisition, strategic partnerships, and revenue growth across global markets.",
     keywords: [
         "Zargham Haider",
         "Business Development Manager",
